@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chat.ChatWindow">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll1"
+        android:gravity="center">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewProfilePic"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:layout_margin="10dp"
+
+            app:cardCornerRadius="60dp">
+
+            <ImageView
+                android:id="@+id/profileImg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/user_1" />
+        </androidx.cardview.widget.CardView>
+
+
+
+        <TextView
+            android:id="@+id/recivername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User"
+            android:gravity="start"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/pink"
+            android:textSize="22sp"
+            android:layout_margin="18sp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCW"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll2"
+        android:layout_below="@+id/ll1"
+        android:padding="15dp" />
+
+    <RelativeLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp">
+
+        <EditText
+            android:id="@+id/chatMsg"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/sendBtn"
+            android:background="@drawable/rounded_corners"
+            android:hint="type your msg here...."
+            android:padding="20dp"
+            android:textColorHint="#FFB1CB" />
+
+        <ImageButton
+            android:id="@+id/sendBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="5dp"
+            android:src="@drawable/ic_send" />
+    </RelativeLayout>
+
+</RelativeLayout>

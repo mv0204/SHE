@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SHE</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="default_web_client_id" translatable="false">470992644688-cu7jgdju44pnbcnh0s1aa6clsptu8dnn.apps.googleusercontent.com</string>
+</resources>
