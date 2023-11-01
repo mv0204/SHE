@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "470992644688",
+    "firebase_url": "https://she-final-default-rtdb.firebaseio.com",
     "project_id": "she-final",
     "storage_bucket": "she-final.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.she"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "470992644688-3133fgorlb3psufdeafjn2mknra9jcqi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.she",
+            "certificate_hash": "a7f30fe551f262fda60477dd44f55b8a7c323523"
+          }
+        },
+        {
+          "client_id": "470992644688-cu7jgdju44pnbcnh0s1aa6clsptu8dnn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDCUpom5omwRuo6j_akIRJ4rNGj3XjoUis"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470992644688-cu7jgdju44pnbcnh0s1aa6clsptu8dnn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

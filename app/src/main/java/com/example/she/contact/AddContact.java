@@ -30,12 +30,19 @@ public class AddContact extends AppCompatActivity {
         MyDbHandler db = new MyDbHandler(this);
         binding.insertbtn.setOnClickListener(v -> {
             String sName = name.getText().toString();
-            if (sName.isEmpty()) {
+            if (sName.isEmpty() && phoneNo.getText().toString().isEmpty()) {
                 name.setError("Enter a name !");
+                phoneNo.setError("Enter a valid no");
+                return;
+            } else if (sName.isEmpty()) {
+                name.setError("Enter a name !");
+                return;
             } else if (phoneNo.getText().toString().isEmpty()) {
                 phoneNo.setError("Enter a Phone number");
+                return;
             } else if (phoneNo.getText().toString().length() < 10 || phoneNo.getText().toString().length() > 10) {
                 phoneNo.setError("Enter a valid no");
+                return;
             } else {
                 ArrayList<DmModel> list = db.viewData();
                 ArrayList<String> sList = new ArrayList<>();

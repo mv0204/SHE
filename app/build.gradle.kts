@@ -48,6 +48,13 @@ dependencies {
 
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
 
+    implementation ("com.github.dhaval2404:imagepicker:2.1")
+
+    implementation ("com.github.1902shubh:SendMail:1.0.0")
+
+    implementation ("com.airbnb.android:lottie:6.1.0")
+
+
     implementation ("com.github.bumptech.glide:glide:4.15.1")
 
     implementation("com.google.android.gms:play-services-maps:18.1.0")

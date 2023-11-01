@@ -25,49 +25,29 @@ public class FirebaseUtils {
         return false;
     }
 
-
-//    public static DocumentReference getUserDetailsFromFireStore() {
-//        return FirebaseFirestore.getInstance().collection("users").document(getUserId());
-//    }
-
-//    public static CollectionReference allUserCollectionReference() {
-//        return FirebaseFirestore.getInstance().collection("users");
-//    }
-
-    //    public static DocumentReference getChatRoomReference(String chatRoomID) {
-//        return FirebaseFirestore.getInstance().collection("chatrooms").document(chatRoomID);
-//    }
-//
-//    public static CollectionReference chatMessageCollectionReference(String chatRoomID) {
-//        return FirebaseFirestore.getInstance().collection("chatrooms").document(chatRoomID).collection("chats");
-//    }
-//    public static DocumentReference getOtherUserFromChatroom(List<String> list) {
-//        if (list.get(0).equals(FirebaseUtils.getUserId())) {
-//            return FirebaseFirestore.getInstance().collection("users").document(list.get(1));
-//        } else {
-//            return FirebaseFirestore.getInstance().collection("users").document(list.get(0));
-//        }
-//    }
-//
-//    public static CollectionReference allChatroomCollectionReference() {
-//        return FirebaseFirestore.getInstance().collection("chatrooms");
-//    }
-
     public static DatabaseReference getUserDetailsFromDatabaseReference(String id) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference().child("user").child(id);
         return reference;
 
     }
+    public static DatabaseReference getCurrentUserDetailsFromDatabaseReference() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference().child("user").child(getUserId());
+        return reference;
+
+    }
+
     public static DatabaseReference getUserDatabaseReference() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference().child("user");
         return reference;
 
     }
+
     public static DatabaseReference getUserChatReference() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference  chatReference = database.getReference().child("chats");
+        DatabaseReference chatReference = database.getReference().child("chats");
 
         return chatReference;
 
@@ -99,6 +79,40 @@ public class FirebaseUtils {
         return FirebaseStorage.getInstance().getReference().child("profilePic").child(otherUserId);
 
     }
+
+
+
+
+
+
+
+
+//    public static DocumentReference getUserDetailsFromFireStore() {
+//        return FirebaseFirestore.getInstance().collection("users").document(getUserId());
+//    }
+
+//    public static CollectionReference allUserCollectionReference() {
+//        return FirebaseFirestore.getInstance().collection("users");
+//    }
+
+    //    public static DocumentReference getChatRoomReference(String chatRoomID) {
+//        return FirebaseFirestore.getInstance().collection("chatrooms").document(chatRoomID);
+//    }
+//
+//    public static CollectionReference chatMessageCollectionReference(String chatRoomID) {
+//        return FirebaseFirestore.getInstance().collection("chatrooms").document(chatRoomID).collection("chats");
+//    }
+//    public static DocumentReference getOtherUserFromChatroom(List<String> list) {
+//        if (list.get(0).equals(FirebaseUtils.getUserId())) {
+//            return FirebaseFirestore.getInstance().collection("users").document(list.get(1));
+//        } else {
+//            return FirebaseFirestore.getInstance().collection("users").document(list.get(0));
+//        }
+//    }
+//
+//    public static CollectionReference allChatroomCollectionReference() {
+//        return FirebaseFirestore.getInstance().collection("chatrooms");
+//    }
 
 
 }

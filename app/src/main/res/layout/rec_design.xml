@@ -13,12 +13,13 @@
         android:id="@+id/cardView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#ECF5F6"
+        android:backgroundTint="#F4E1FB"
         android:elevation="9dp"
         app:cardCornerRadius="9dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <!--        android:backgroundTint="#ECF5F6"-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

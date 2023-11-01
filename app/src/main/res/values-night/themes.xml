@@ -10,4 +10,12 @@
         <item name="windowMinWidthMajor">80%</item>
         <item name="windowActionBar">false</item>
     </style>
+
+
+
+
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#809bce</item>
+        <item name="boxStrokeWidth">1dp</item>
+    </style>
 </resources>

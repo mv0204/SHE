@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // fetching name and profile from FireBaseDB
-        FirebaseUtils.getUserDetailsFromDatabaseReference(FirebaseUtils.getUserId()).addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseUtils.getCurrentUserDetailsFromDatabaseReference().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String name = snapshot.child("name").getValue().toString();
                 String profile = snapshot.child("profile").getValue().toString();
-                binding.textViewUserName.setText("Hi , " + name);
+                binding.textViewUserName.setText("Hi, " + name);
                 AndroidUtils.loadImage(Uri.parse(profile), binding.imageViewUserProfile, MainActivity.this);
 
             }
@@ -87,8 +87,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // requesting permissions
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS,
-                Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         startService(new Intent(getApplicationContext(), GPS_Service.class));
         startService(new Intent(getApplicationContext(), MyAccelerometerService.class));
@@ -122,18 +121,18 @@ public class MainActivity extends AppCompatActivity {
             }
         };                                              // broadcast receiver to get shake updates
 
-        ContextCompat.registerReceiver(this, locationReceiver,
-                new IntentFilter(GPS_Service.LOCATION_UPDATE_ACTION), ContextCompat.RECEIVER_EXPORTED);                              // registering receiver for location updates
+        ContextCompat.registerReceiver(this, locationReceiver, new IntentFilter(GPS_Service.LOCATION_UPDATE_ACTION), ContextCompat.RECEIVER_EXPORTED);                              // registering receiver for location updates
 
-        ContextCompat.registerReceiver(this, shakeReceiver,
-                new IntentFilter(MyAccelerometerService.SHAKE_UPDATE_ACTION), ContextCompat.RECEIVER_EXPORTED);                      // registering receiver for shake updates
+        ContextCompat.registerReceiver(this, shakeReceiver, new IntentFilter(MyAccelerometerService.SHAKE_UPDATE_ACTION), ContextCompat.RECEIVER_EXPORTED);                      // registering receiver for shake updates
 
         try {
             db = new MyDbHandler(getApplicationContext());
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        binding.profileL.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+        });
         binding.helplineLayout.setOnClickListener(view -> {
             startActivity(new Intent(getApplicationContext(), HelplineActivity.class));
         });
@@ -175,11 +174,9 @@ public class MainActivity extends AppCompatActivity {
             no.setOnClickListener(v2 -> dialog.dismiss());
             dialog.show();
         });
-        binding.chatBtn.setOnClickListener(
-                view -> {
-                    startActivity(new Intent(MainActivity.this, ChatsHome.class));
-                }
-        );
+        binding.chatBtn.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ChatsHome.class));
+        });
 
 
     }
@@ -231,13 +228,7 @@ public class MainActivity extends AppCompatActivity {
 
                     for (DmModel d : list) {
                         String p = d.getKEY_PHONE();
-                        smsManager.sendTextMessage(p, null,
-                                "Location is :" + addresses.get(0).
-                                        getAddressLine(0) +
-                                        "\nCoordinates are:("
-                                        + addresses.get(0).getLatitude()
-                                        + "," + addresses.get(0).getLongitude() + ")",
-                                null, null);
+                        smsManager.sendTextMessage(p, null, "Location is :" + addresses.get(0).getAddressLine(0) + "\nCoordinates are:(" + addresses.get(0).getLatitude() + "," + addresses.get(0).getLongitude() + ")", null, null);
                     }
                     Toast.makeText(this, "Message Send", Toast.LENGTH_SHORT).show();
 
@@ -259,10 +250,7 @@ public class MainActivity extends AppCompatActivity {
             list = db.viewData();
             for (DmModel d : list) {
                 String p = d.getKEY_PHONE();
-                smsManager.sendTextMessage(p, null,
-                        "coordinates are :\nLat: " + lat + "\nLon: " + lon + "\nAnd you can check location here :\n" +
-                                " https://maps.google.com/maps?q=" + lat + "," + lon,
-                        null, null);
+                smsManager.sendTextMessage(p, null, "coordinates are :\nLat: " + lat + "\nLon: " + lon + "\nAnd you can check location here :\n" + " https://maps.google.com/maps?q=" + lat + "," + lon, null, null);
             }
             Toast.makeText(this, "message send ", Toast.LENGTH_SHORT).show();
         }

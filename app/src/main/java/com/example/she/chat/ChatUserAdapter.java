@@ -66,6 +66,7 @@ public class ChatUserAdapter extends RecyclerView.Adapter<ChatUserAdapter.viewho
             super(itemView);
             userImg = itemView.findViewById(R.id.imageViewUserProfile);
             username = itemView.findViewById(R.id.username);
+
         }
     }
 }

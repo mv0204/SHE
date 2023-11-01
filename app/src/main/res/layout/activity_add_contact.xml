@@ -10,7 +10,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/PinkLoginTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
@@ -28,13 +28,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            app:hintTextColor="@color/black"
+
             app:startIconDrawable="@drawable/ic_person" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/PinkLoginTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="230dp"
@@ -54,6 +54,9 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/pink"
+            app:hintTextColor="@color/pink"
+
             android:inputType="textPersonName"
             app:hintEnabled="true"
             app:startIconDrawable="@drawable/ic_phone" />

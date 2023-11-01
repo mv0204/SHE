@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.she.R;
 
 import org.json.JSONArray;
@@ -38,6 +39,7 @@ public class ChatLaytoutGPT extends AppCompatActivity {
     TextView textView;
     ArrayList<MessageModelGPT> messageModelList;
     MessageAdapterGPT messageAdapter;
+    LottieAnimationView lottieAnimationView;
     OkHttpClient client = new OkHttpClient.Builder()
             .readTimeout(60, TimeUnit.SECONDS)
             .build();
@@ -51,6 +53,7 @@ public class ChatLaytoutGPT extends AppCompatActivity {
         chatMsg = findViewById(R.id.chatMsg);
         sendButton = findViewById(R.id.sendBtn);
         textView = findViewById(R.id.noMSG);
+        lottieAnimationView=findViewById(R.id.botAnim);
 
 
         messageAdapter = new MessageAdapterGPT(messageModelList, getApplicationContext());
@@ -59,28 +62,23 @@ public class ChatLaytoutGPT extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String q = chatMsg.getText().toString().trim();
-                addToChat(q, MessageModelGPT.SENT_BY_ME);
-                callAPI(q);
-                textView.setVisibility(View.GONE);
-                chatMsg.setText("");
+        sendButton.setOnClickListener(view -> {
+            String q = chatMsg.getText().toString().trim();
+            addToChat(q, MessageModelGPT.SENT_BY_ME);
+            callAPI(q);
+            textView.setVisibility(View.GONE);
+            lottieAnimationView.setVisibility(View.GONE);
+            chatMsg.setText("");
 
-            }
         });
 
     }
 
     void addToChat(String message, String sentBy) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                messageModelList.add(new MessageModelGPT(message, sentBy));
-                messageAdapter.notifyDataSetChanged();
-                recyclerView.smoothScrollToPosition(messageAdapter.getItemCount());
-            }
+        runOnUiThread(() -> {
+            messageModelList.add(new MessageModelGPT(message, sentBy));
+            messageAdapter.notifyDataSetChanged();
+            recyclerView.smoothScrollToPosition(messageAdapter.getItemCount());
         });
 
     }
@@ -112,7 +110,7 @@ public class ChatLaytoutGPT extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonBody.toString(), JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer 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")
                 .post(body)
                 .build();
         client.newCall(request).enqueue(new Callback() {

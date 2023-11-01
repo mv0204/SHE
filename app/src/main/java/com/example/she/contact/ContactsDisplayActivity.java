@@ -24,7 +24,6 @@ public class ContactsDisplayActivity extends AppCompatActivity {
     ActivityContactsDisplayBinding binding;
     RecyclerView recyclerView;
     ArrayList<DmModel> userlist;
-    SwipeRefreshLayout swipeRefreshLayout;
     RecAdapter recAdapter;
     ArrayList<RecModel> userlist2;
     MyDbHandler db;
@@ -44,10 +43,10 @@ public class ContactsDisplayActivity extends AppCompatActivity {
             }
             else {
                 Intent intent=new Intent(ContactsDisplayActivity.this,AddContact.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                overridePendingTransition(0,0);
                 startActivity(intent);
+                overridePendingTransition(0,0);
             }
         });
         db= new MyDbHandler(this);
@@ -66,16 +65,15 @@ public class ContactsDisplayActivity extends AppCompatActivity {
         binding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                recreate();
                 Intent i = new Intent(ContactsDisplayActivity.this, ContactsDisplayActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 finish();
                 overridePendingTransition(0, 0);
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                swipeRefreshLayout.setRefreshing(false);
+                binding.swipe.setRefreshing(false);
+//                recreate();
+
             }
         });
     }
@@ -85,5 +83,11 @@ public class ContactsDisplayActivity extends AppCompatActivity {
         if(requestCode==1){
             recreate();
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
     }
 }

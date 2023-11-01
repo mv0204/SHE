@@ -65,7 +65,6 @@ public class ChatWindow extends AppCompatActivity {
         senderRoom = senderUID + receiverUid;
         receiverRoom = receiverUid + senderUID;
 
-        DatabaseReference reference = FirebaseUtils.getUserDetailsFromDatabaseReference(senderUID);
         DatabaseReference chatReference = FirebaseUtils.getUserChatReference().child(senderRoom).child("messages");
         chatReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -82,7 +81,9 @@ public class ChatWindow extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        }); // updating messages and showing in ui
+
+        DatabaseReference reference = FirebaseUtils.getUserDetailsFromDatabaseReference(senderUID);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -94,7 +95,7 @@ public class ChatWindow extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });  // for initialising pics
 
 
         binding.sendBtn.setOnClickListener(view -> {
@@ -111,7 +112,8 @@ public class ChatWindow extends AppCompatActivity {
             chatReference.push().setValue(messages).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    database.getReference().child("chats").child(receiverRoom).child("messages").push().setValue(messages).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    FirebaseUtils.getUserChatReference().child(receiverRoom).child("messages")
+                            .push().setValue(messages).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 

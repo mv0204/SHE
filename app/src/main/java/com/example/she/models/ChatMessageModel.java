@@ -3,6 +3,7 @@ package com.example.she.models;
 public class ChatMessageModel {
     String message;
     String senderId;
+    String lastMessage;
     long timeStamp;
 
     public ChatMessageModel() {
@@ -12,6 +13,14 @@ public class ChatMessageModel {
         this.message = message;
         this.senderId = senderId;
         this.timeStamp = timeStamp;
+    }
+
+    public String getLastMessage() {
+        return lastMessage;
+    }
+
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
     }
 
     public String getMessage() {
