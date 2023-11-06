@@ -33,19 +33,19 @@
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="@+id/map"></SearchView>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/my_location"
         android:layout_width="50dp"
         android:layout_height="0dp"
-        android:layout_marginTop="554dp"
+        android:layout_marginTop="550dp"
 
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="36dp"
         android:layout_marginBottom="17dp"
         android:layout_weight="1"
         map:layout_constraintBottom_toTopOf="@+id/linearLayout"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintTop_toTopOf="parent"
-        map:srcCompat="@android:drawable/ic_menu_mylocation" />
+        map:srcCompat="@drawable/placeholder" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -58,30 +58,30 @@
         map:layout_constraintTop_toBottomOf="@+id/my_location">
 
 
-        <ImageButton
+        <ImageView
             android:id="@+id/hospital"
             android:layout_width="50dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            map:srcCompat="@android:drawable/ic_dialog_map" />
+            map:srcCompat="@drawable/pharmacy" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/policeStation"
             android:layout_width="50dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            map:srcCompat="@android:drawable/ic_menu_mylocation" />
+            map:srcCompat="@drawable/policeman" />
 
 
-        <ImageButton
+        <ImageView
             android:id="@+id/pharmacy"
             android:layout_width="50dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            map:srcCompat="@android:drawable/ic_menu_mylocation" />
+            map:srcCompat="@drawable/hospital" />
     </LinearLayout>
 
 

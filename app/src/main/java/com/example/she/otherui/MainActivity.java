@@ -41,6 +41,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     BroadcastReceiver shakeReceiver;
     MyDbHandler db;
     UserModel currentUser;
+    BottomNavigationView bottomNavigationView;
     FusedLocationProviderClient fusedLocationProviderClient;
     private ActivityMainBinding binding;
 
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.pink));
 
         // fetching name and profile from FireBaseDB
         FirebaseUtils.getCurrentUserDetailsFromDatabaseReference().addValueEventListener(new ValueEventListener() {
@@ -130,9 +133,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        binding.profileL.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-        });
         binding.helplineLayout.setOnClickListener(view -> {
             startActivity(new Intent(getApplicationContext(), HelplineActivity.class));
         });
@@ -177,6 +177,17 @@ public class MainActivity extends AppCompatActivity {
         binding.chatBtn.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ChatsHome.class));
         });
+        binding.defenceL.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, DefenceNewActivity.class));
+        });
+        binding.helpL.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, HelpActivity.class));
+        });
+        binding.profileL.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+        });
+
+
 
 
     }

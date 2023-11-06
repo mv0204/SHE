@@ -2,6 +2,7 @@ package com.example.she.chat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,7 @@ public class ChatsHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityChatsHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.pink));
 
         mainUserRecyclerView = findViewById(R.id.mainUserRecyclerView);
 

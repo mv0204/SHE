@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.she.R;
 import com.example.she.databinding.ActivityAddContactBinding;
@@ -23,6 +24,7 @@ public class AddContact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddContactBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.pink));
 
         name = findViewById(R.id.editTextName);
         phoneNo = findViewById(R.id.editTextPhoneNo);

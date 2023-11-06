@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.she.R;
 import com.example.she.databinding.ActivityHelplineBinding;
 
 public class HelplineActivity extends AppCompatActivity {
@@ -22,7 +23,7 @@ public class HelplineActivity extends AppCompatActivity {
         binding = ActivityHelplineBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         ActivityCompat.requestPermissions(HelplineActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
-
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.pink));
 
         binding.policeL.setOnClickListener(view -> {
             String number = "100";

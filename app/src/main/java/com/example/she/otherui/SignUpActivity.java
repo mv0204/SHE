@@ -3,6 +3,7 @@ package com.example.she.otherui;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -44,6 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.pink));
 
         auth = FirebaseAuth.getInstance();
         exampleActivityResult = registerForActivityResult(

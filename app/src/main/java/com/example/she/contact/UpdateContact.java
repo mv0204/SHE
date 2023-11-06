@@ -1,6 +1,7 @@
 package com.example.she.contact;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,6 +25,8 @@ public class UpdateContact extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_contact);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.pink));
+
         name=findViewById(R.id.nameEt);
         no=findViewById(R.id.phoneNoEt);
         update=findViewById(R.id.update);

@@ -4,14 +4,13 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
     <style name="dialogue">
         <item name="android:windowBackground">@drawable/empty_background</item>
         <item name="windowNoTitle">true</item>
         <item name="windowMinWidthMajor">80%</item>
         <item name="windowActionBar">false</item>
     </style>
-
-
 
 
     <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">

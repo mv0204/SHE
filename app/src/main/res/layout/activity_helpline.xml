@@ -22,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/artifika"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Helplines"
             android:textColor="@color/black"
             android:textSize="40sp"
@@ -33,9 +33,9 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_gravity="center"
             android:textSize="20sp"
+            android:layout_marginBottom="30dp"
             android:textStyle="bold"
             android:text="Don't Hesitate To Reach Out" />
     </LinearLayout>
@@ -43,7 +43,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="118dp"
         android:src="@drawable/helpline_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -52,10 +52,10 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
-        android:layout_height="670dp"
+        android:layout_height="wrap_content"
         app:cardElevation="25dp"
         app:cardCornerRadius="12dp"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="135dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 app:cardCornerRadius="12dp">
 
                 <LinearLayout
@@ -109,7 +109,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 app:cardCornerRadius="12dp">
 
                 <LinearLayout
@@ -149,7 +149,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 app:cardCornerRadius="12dp">
 
                 <LinearLayout
@@ -189,7 +189,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 app:cardCornerRadius="12dp">
 
                 <LinearLayout
@@ -229,7 +229,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 app:cardCornerRadius="12dp">
 
                 <LinearLayout
@@ -269,7 +269,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 app:cardCornerRadius="12dp">
 
                 <LinearLayout
@@ -309,7 +309,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 app:cardCornerRadius="12dp">
 
                 <LinearLayout

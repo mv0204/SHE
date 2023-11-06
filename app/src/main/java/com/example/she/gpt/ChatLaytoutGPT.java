@@ -2,6 +2,7 @@ package com.example.she.gpt;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,6 +49,7 @@ public class ChatLaytoutGPT extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_laytout_gpt);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.pink));
         messageModelList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
         chatMsg = findViewById(R.id.chatMsg);
@@ -110,7 +112,7 @@ public class ChatLaytoutGPT extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonBody.toString(), JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer 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")
                 .post(body)
                 .build();
         client.newCall(request).enqueue(new Callback() {

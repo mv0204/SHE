@@ -19,6 +19,7 @@
         <item name="boxStrokeColor">#809bce</item>
         <item name="boxStrokeWidth">1dp</item>
     </style>
+
     <style name="PinkLoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/pink</item>
         <item name="boxStrokeWidth">2dp</item>

@@ -7,7 +7,9 @@
     <color name="pink">#ff6b88</color>
 
     <color name="blue">#FF3700B3</color>
+    <color name="dark_blue">#180349</color>
     <color name="teal_2">#FF03DAC5</color>
     <color name="teal">#FF018786</color>
+    <color name="transparent">#00000000 </color>
 
 </resources>

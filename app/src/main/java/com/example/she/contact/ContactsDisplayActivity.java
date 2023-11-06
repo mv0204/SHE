@@ -2,6 +2,7 @@ package com.example.she.contact;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,7 +35,7 @@ public class ContactsDisplayActivity extends AppCompatActivity {
         binding = ActivityContactsDisplayBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         recyclerView=findViewById(R.id.rec);
-
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.pink));
         binding.floatingActionButton.setOnClickListener(view -> {
 
             if(userlist.size()>=10){
