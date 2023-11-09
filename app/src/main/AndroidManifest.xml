@@ -24,6 +24,9 @@
         android:theme="@style/Theme.SHE"
         tools:targetApi="31">
         <activity
+            android:name=".otherui.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".otherui.DefenceNewActivity"
             android:exported="false" />
         <activity

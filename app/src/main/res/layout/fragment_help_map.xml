@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.HelpMapFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="500dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/map_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/poppins_bold"
+           android:textColor="@color/white"
+            android:text="Search Map"
+            android:textSize="50sp"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"></TextView>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+           android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="Location,Online or Offline"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="Whenever You Sense Danger  Feel Free To Activate The Feature , Shake Your Phone or Tap, To Activate The Danger Button and Send Location Co-ordinatess. "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"></TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

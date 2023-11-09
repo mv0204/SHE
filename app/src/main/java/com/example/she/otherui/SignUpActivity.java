@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.she.R;
@@ -45,7 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.pink));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.pink));
 
         auth = FirebaseAuth.getInstance();
         exampleActivityResult = registerForActivityResult(
@@ -63,6 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         binding.googleButtonImg.setOnClickListener(view -> {
+            setInProgress(true);
             signIn();
         });
 
@@ -78,13 +80,14 @@ public class SignUpActivity extends AppCompatActivity {
             } else if (passs.length() < 6) {
                 binding.editTextPassword.setError("Enter Long Pass");
             } else {
+                setInProgress(true);
                 auth.createUserWithEmailAndPassword(emaill, passs)
                         .addOnCompleteListener(task -> {
 
                             if (task.isSuccessful()) {
                                 String id = task.getResult().getUser().getUid();
                                 DatabaseReference reference = FirebaseUtils.getUserDetailsFromDatabaseReference(id);
-                                StorageReference storageReference=FirebaseUtils.getCurrentUserProfilePicStorageReference();
+                                StorageReference storageReference = FirebaseUtils.getCurrentUserProfilePicStorageReference();
 
 
                                 imageUri = "https://firebasestorage.googleapis.com/v0/b/she-final.appspot.com/o/user_1.png?alt=media&token=26726be2-d46e-4c36-9a54-ad97487e77e5";
@@ -92,6 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 UserModel users = new UserModel(id, namee, imageUri, emaill, passs);
                                 reference.setValue(users).addOnCompleteListener(task1 -> {
                                     if (task1.isSuccessful()) {
+                                        setInProgress(false);
                                         Toast.makeText(this, "successful creating account", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                                         startActivity(intent);
@@ -118,6 +122,7 @@ public class SignUpActivity extends AppCompatActivity {
             auth.signInWithCredential(credential)
                     .addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()) {
+                            setInProgress(false);
                             Toast.makeText(this, "successful creating account", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = auth.getCurrentUser();
                             UserModel userModel = new UserModel();
@@ -151,5 +156,15 @@ public class SignUpActivity extends AppCompatActivity {
     private void signIn() {
         exampleActivityResult.launch(mGoogleSignInClient.getSignInIntent());
 
+    }
+
+    void setInProgress(boolean inProgress) {
+        if (inProgress) {
+            binding.progressbar.setVisibility(View.VISIBLE);
+            binding.buttonCreateAccount.setVisibility(View.GONE);
+        } else {
+            binding.progressbar.setVisibility(View.GONE);
+            binding.buttonCreateAccount.setVisibility(View.VISIBLE);
+        }
     }
 }

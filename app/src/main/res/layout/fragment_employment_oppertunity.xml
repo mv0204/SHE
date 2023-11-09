@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9F3F3"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.EmploymentOppertunityFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="320dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="15dp"
+        android:layout_gravity="center"
+        android:layout_height="600dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#81CDCD"
+                android:layout_height="300dp"
+                android:src="@drawable/equal_oppertunity"
+                ></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Oppertunity Right"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:justificationMode="inter_word"
+                android:text="Equal Employment Opportunity is the concept of equal opportunity in an organization to achieve or maintain fair employment. The core EEO definition is that all employees should be fairly treated."
+                ></TextView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

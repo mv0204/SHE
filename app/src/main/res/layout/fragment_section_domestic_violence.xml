@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#E7DBF6"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SectionDomesticViolenceFragment">
+    <androidx.cardview.widget.CardView
+        android:layout_width="320dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="15dp"
+        android:layout_gravity="center"
+        android:layout_height="600dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#DDC9F6"
+                android:layout_height="300dp"
+                android:src="@drawable/domestic_violence"
+                ></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="29sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Domestic   Violence"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:justificationMode="inter_word"
+                android:text="Domestic Violence Act 2005 ensures woman’s right to reside in her matrimonial home. This Act has a special feature with specific provisions under law which provides protection to a woman to „live in violence free home.  Protection of Women from
+                 "
+                ></TextView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

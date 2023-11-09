@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#C8E4F1"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SectionBuyingMinorFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="320dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="15dp"
+        android:layout_gravity="center"
+        android:layout_height="600dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#88C9E6"
+                android:layout_height="300dp"
+                android:src="@drawable/buying_child"
+                ></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="29sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="Buying Minor\nSection"
+                ></TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:justificationMode="inter_word"
+                android:text="Whoever buys, hires or otherwise obtains possession of any person under the age of eighteen years with intent that such person shall at any age be used for any unlawful and immoral purpose
+shall be punished with imprisonment to ten years and a fine"
+                ></TextView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

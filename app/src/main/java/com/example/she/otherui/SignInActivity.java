@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.she.R;
@@ -59,14 +60,19 @@ public class SignInActivity extends AppCompatActivity {
         binding.createAccountTv.setOnClickListener(view -> {
             startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
         });
+        binding.forgetPassTv.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), ForgetPasswordActivity.class));
+        });
         binding.buttonLogin.setOnClickListener(view -> {
             String emaill = binding.editTextEmail.getText().toString();
             String passs = binding.editTextPassword.getText().toString();
             if (TextUtils.isEmpty(emaill) || TextUtils.isEmpty(passs)) {
                 Toast.makeText(SignInActivity.this, "Enter Valid Details", Toast.LENGTH_SHORT).show();
             } else {
+                setInProgress(true);
                 auth.signInWithEmailAndPassword(emaill, passs).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+                        setInProgress(false);
                         try {
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             startActivity(intent);
@@ -92,6 +98,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
         binding.googleButtonImg.setOnClickListener(view -> {
+            setInProgress(true);
             googleSignIn();
         });
 
@@ -105,6 +112,7 @@ public class SignInActivity extends AppCompatActivity {
             auth.signInWithCredential(credential)
                     .addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()) {
+                            setInProgress(false);
                             Toast.makeText(this, "successful", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = auth.getCurrentUser();
                             UserModel userModel = new UserModel();
@@ -138,5 +146,14 @@ public class SignInActivity extends AppCompatActivity {
     private void googleSignIn() {
         exampleActivityResult.launch(mGoogleSignInClient.getSignInIntent());
 
+    }
+    void setInProgress(boolean inProgress) {
+        if (inProgress) {
+            binding.progressbar.setVisibility(View.VISIBLE);
+            binding.buttonLogin.setVisibility(View.GONE);
+        } else {
+            binding.progressbar.setVisibility(View.GONE);
+            binding.buttonLogin.setVisibility(View.VISIBLE);
+        }
     }
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ProfileFragment">
+
+
+    <LinearLayout
+        android:id="@+id/centerl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".LoginNoScreen">
+
+
+        <ImageView
+            android:id="@+id/imageProfileFrag"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_oval_2"
+            android:backgroundTint="@color/blue"
+            android:padding="10dp"
+            android:src="@drawable/ic_person_white_100"
+
+            ></ImageView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:textColorHint="@color/blue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameProfileFrag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="20dp"
+                android:drawableTint="@color/blue"
+                android:hint="Enter Your Username"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/blue" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/updateButtonProfileFrag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:cornerRadius="20dp"
+                android:padding="10dp"
+                android:backgroundTint="@color/blue"
+                android:clickable="true"
+                android:text="Update"
+                android:textSize="24dp">
+
+            </com.google.android.material.button.MaterialButton>
+
+
+            <ProgressBar
+                android:id="@+id/progressbarProfileFrag"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/blue"
+                android:visibility="invisible"></ProgressBar>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
